@@ -99,19 +99,24 @@ function calcStrength(){
 
 async function copyContent(){
     try{
-        await navigator.clipboard.writeText(password) ;
-        copyMsg.innerText = "Copied" ;
+        if(password === ""){
+            alert ("Generate Password to Copy") ;
+        }
+        else{
+            await navigator.clipboard.writeText(password) ;
+            copyMsg.innerText = "Copied" ;
+            copyMsg.classList.add("active") ;
+            
+            setTimeout(() => { 
+                copyMsg.classList.remove("active") ;
+            }, 2000);
+        }
     }
 
     catch(e){
-        copyMsg.innerText = "Failed to copy" ;
+        alert ('Failed To Copy')
     }
 
-    copyMsg.classList.add("active") ;
-    
-    setTimeout(() => { 
-        copyMsg.classList.remove("active") ;
-    }, 2000);
 }
 
 inputSlider.addEventListener('input' , (e) => {
@@ -164,7 +169,10 @@ function shufflePassword(array){
 
 
 function handleGeneratePassword(){
-    if(checkCount <= 0) return ;
+    if(checkCount <= 0){
+        alert('Select atleast one Option(s) to Generate Password')  ;
+        return ;
+    } 
 
 
     if(passwordLength < checkCount){
@@ -216,5 +224,4 @@ generateBtn.addEventListener('click' , handleGeneratePassword) ;
 
 
  
-
 
