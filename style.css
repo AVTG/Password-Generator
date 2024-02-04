@@ -8,6 +8,19 @@
     font-family: "League Spartan" , sans-serif;
 }
 
+:root {
+    --dk-violet: hsl(268, 75%, 9%);
+    --lt-violet: hsl(268, 47%, 21%);
+    --lt-violet2: hsl(281, 89%, 26%);
+    --vb-violet: hsl(285, 91%, 52%);
+    --vb-violet2: hsl(290, 70%, 36%);
+    --vb-yellow: hsl(52, 100%, 62%);
+    --pl-white: hsl(0, 0%, 100%);
+    --vb-cyan: hsl(176, 100%, 44%);
+    --vb-cyan2: hsl(177, 92%, 70%);
+    --dk-text: hsl(198, 20%, 13%);
+}
+
 
 
 .display::placeholder {
@@ -67,6 +80,7 @@
     width: 1.75rem;
     border-radius: 50%;
     background-color: yellow;
+    background-image: linear-gradient(var(--vb-violet), var(--vb-violet));
     box-shadow: 0px 0px 20px 0px rgba(255,229,61,0.50);
     transition: all 100ms ease-in;
 }
@@ -81,4 +95,24 @@
     border: 1px solid yellow;
     box-shadow: 0px 0px 20px 0px yellow;
 }
+
+.copy-text{
+    position: absolute;
+    color: var(--vb-yellow);
+    background-color: var(--vb-violet2);
+    opacity: 0;
+    left: -150%;
+    top: -250%;
+    padding: 2px 10px ;
+    border-radius: 30px;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all 100ms ease-in;
+}
+
+.copy-text.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
 
